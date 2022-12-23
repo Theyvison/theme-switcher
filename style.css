@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #292c35;
+  --light: #f1f1f1;
+  --label: #111;
+  --switch-bg-url: url(./assets/moon.svg);
+}
+
+body {
+  background-color: var(--dark);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.light body {
+  background-color: var(--light);
+}
+
+.switch {
+  position: relative;
+  width: 350px;
+  background-color: var(--label);
+  padding: 16px;
+  border-radius: 9999px;
+}
+
+.switch span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch span img {
+  width: 128px;
+}
+
+.switch button {
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  background-image: url(./assets/moon.svg) no-repeat center;
+  border-radius: 50%;
+  border: none;
+  transition: 0.2s;
+  animation: slide-out 0.2s;
+}
+
+.switch button:hover {
+  outline: 12px solid rgba(255, 255, 255, 0.2);
+}
+
+.light .switch button {
+  animation: slide-in 0.2s forwards;
+}
+
+@keyframes slide-in {
+  from {
+    left: 4.58%;
+  }
+  to {
+    left: 58%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    left: 58%;
+  }
+  to {
+    left: 4.58%;
+  }
+}
